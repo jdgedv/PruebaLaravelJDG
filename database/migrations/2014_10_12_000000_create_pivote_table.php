@@ -14,14 +14,14 @@ class CreatePivoteTable extends Migration
     public function up()
     {
         Schema::create('pivote', function (Blueprint $table) {
-            $table->integer('artista_id')->unsigned();
-            $table->foreign('artista_id')
+            $table->integer('artist_id')->unsigned();
+            $table->foreign('artist_id')
             ->references('id')
-            ->on('artista');
-            $table->integer('album_id')->unsigned();
-            $table->foreign('album_id')
+            ->on('artist');
+            $table->integer('albums_id')->unsigned();
+            $table->foreign('albums_id')
             ->references('id')
-            ->on('album');
+            ->on('albums');
 
         });
     }
@@ -36,3 +36,4 @@ class CreatePivoteTable extends Migration
         Schema::dropIfExists('pivote');
     }
 }
+

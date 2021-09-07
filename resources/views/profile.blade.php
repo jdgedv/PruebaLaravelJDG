@@ -23,11 +23,19 @@
           </div>
         </div>
         <div class="row">
-          
+         
 
-                <?php   
-                    $myJSON = json_decode($releases);
+                <?php
+
+use function GuzzleHttp\json_decode;
+
+$myJSON = json_decode($releases);
                     $items = $myJSON->albums->items;
+                    $albums = new App\Models\album();
+                    $artista = new App\Models\artist();
+
+                    $albums::truncate();
+                    $artista::truncate();
 
                     foreach($items as $item){
                         echo "
@@ -37,9 +45,38 @@
                             <img class='card-img-top' src='{$item->images[1]->url}' alt='Foto de Sacha'>
                             <div class='card-body'>
                                 <div class='badges'>";
+
+                                
+                                $albums -> label = $item->name;
+                                $albums -> image = $item->images[1]->url;
+                                $albums -> url = $item->href;;
+                                $albums -> save();
+
+                                
                                 foreach($item->artists as $artist){
                                 echo "<a href='{$artist->external_urls->spotify}'><span class='badge badge-info'>'{$artist->name}'</span></a>&nbsp;";
+
+                                $aux=json_encode($artist->external_urls);
+                                $jsonString="{$aux}";
+                                $jsonString=stripslashes($jsonString);
+                                //echo $jsonString;
+
+                                $artista -> name = $artist->name;
+                                $artista -> followers = "NO"; //no existe este elemento
+                                $artista -> genres = $jsonString; //tampoco existe generos pero se pone un json como prueba
+                                $artista -> image = $artist->href;
+                                $artista -> save();
+
                                 }
+                                
+                                
+   
+
+
+                                
+
+
+
                         echo"   </div>
                                 <h5 class='card-title'>'{$item->name}'</h5>
                                 
