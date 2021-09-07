@@ -14,5 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        /*
+        $album= new album();
+        $album->label = 'labelprueba';
+        $album->image = 'rutaimagen';
+        $album->url = 'urlaalbum';
+        $album->save();
+        */
+
     }
 }

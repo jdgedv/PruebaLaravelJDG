@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArtistaTable extends Migration
+class CreateArtistTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateArtistaTable extends Migration
      */
     public function up()
     {
-        Schema::create('artista', function (Blueprint $table) {
+        Schema::create('artist', function (Blueprint $table) {
             $table->bigIncrements('id',11);
             $table->string('name', 255);
             $table->string('followers', 11);
@@ -29,6 +29,6 @@ class CreateArtistaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artista');
+        Schema::dropIfExists('artist');
     }
 }

@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="index.css">
     <title>NUEVOS LANZAMIENTOS</title>
 </head>
-<body>
+<body class="bg-dark bg-gradient text-white">
 
     <!-- <img src="{{$profile['images'][0]['url']}}" alt="profile"> -->
 
             <!-- Speakers -->
-    <section id="speakers" class="mt-4">
+    <section id="speakers" class="mt-4 ">
       <div class="container">
         <div class="row">
           <div class="col text-center text-uppercase">
@@ -32,8 +32,8 @@
                     foreach($items as $item){
                         echo "
                         
-                        <div class='col-12 col-md-6 col-lg-4 mb-4'>
-                            <div class='card'>
+                        <div class='col-12 col-md-6 col-lg-4 mb-4 '>
+                            <div class='card bg-secondary bg-gradient bg-opacity-90 text-white'>
                             <img class='card-img-top' src='{$item->images[1]->url}' alt='Foto de Sacha'>
                             <div class='card-body'>
                                 <div class='badges'>";
