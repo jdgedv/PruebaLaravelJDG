@@ -41,9 +41,10 @@ $myJSON = json_decode($releases);
                         echo "
                         
                         <div class='col-12 col-md-6 col-lg-4 mb-4 '>
-                            <div class='card bg-secondary bg-gradient bg-opacity-90 text-white'>
-                            <img class='card-img-top' src='{$item->images[1]->url}' alt='Foto de Sacha'>
-                            <div class='card-body'>
+                            <div class='card bg-secondary bg-gradient bg-opacity-90 text-white'>";
+                            ?> <a href="{{route('albums')}}"><img class='card-img-top' <?php echo "src='{$item->images[1]->url}'"; ?> ></a>
+                            <?php
+                            echo "<div class='card-body'>
                                 <div class='badges'>";
 
                                 

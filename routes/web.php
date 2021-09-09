@@ -18,6 +18,7 @@ use App\Http\Controllers\SpotifyController;
 Route::view('/', 'home')->name('home');
 Route::get('login', [SpotifyController::class, 'login'])->name('login');
 Route::get('profile', [SpotifyController::class, 'getUser'])->name('profile');
+Route::view('/albums', 'albums')->name('albums');
 
 /*
 Route::get('/', function () {
